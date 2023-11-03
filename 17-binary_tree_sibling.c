@@ -7,7 +7,7 @@
  * @node: a pointer to the searching node.
  *
  * Return: a tree, NULL: node is NULL or the parent or
- * 		node has no sibling
+ * node has no sibling
  */
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
