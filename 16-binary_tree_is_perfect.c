@@ -1,6 +1,20 @@
 #include "binary_trees.h"
 
 /**
+ * bin_is_leaf - Checks if a node is a leaf.
+ *
+ * @node: pointer to the node
+ *
+ * Return: 1 if node is a leaf, otherwise 0
+ */
+int bin_is_leaf(const binary_tree_t *node)
+{
+	if (!node || node->left || node->right)
+		return (0);
+	return (1);
+}
+
+/**
  * get_leaf - Finds leaf of a ree.
  *
  * @tree: A pointer to the root node.
@@ -9,7 +23,7 @@
  */
 const binary_tree_t *get_leaf(const binary_tree_t *tree)
 {
-	if (binary_tree_is_leaf(tree) == 1)
+	if (bin_is_leaf(tree) == 1)
 		return (tree);
 	return (tree->left ? get_leaf(tree->left) : get_leaf(tree->right));
 }
@@ -25,7 +39,7 @@ const binary_tree_t *get_leaf(const binary_tree_t *tree)
  */
 int is_perfect(const binary_tree_t *tree, size_t leaf_depth, size_t level)
 {
-	if (binary_tree_is_leaf(tree))
+	if (bin_is_leaf(tree))
 		return (level == leaf_depth ? 1 : 0);
 	if (!tree->left || !tree->right)
 		return (0);
@@ -38,7 +52,7 @@ int is_perfect(const binary_tree_t *tree, size_t leaf_depth, size_t level)
  *
  * @tree: a pointer to the root node.
  *
- * Return: integer, 0 if tree is NULL
+ * Return: 1 if true, 0 if tree is NULL
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
