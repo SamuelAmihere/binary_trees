@@ -1,6 +1,18 @@
 #include "binary_trees.h"
 
 /**
+ * bin_depth - Measures the depth of a node in a binary tree
+ *
+ * @tree: A pointer to the root node.
+ *
+ * Return: integer, 0 if tree is NULL
+ */
+size_t bin_depth(const binary_tree_t *tree)
+{
+	return (tree->parent != NULL ? 1 + bin_depth(tree->parent) : 0);
+}
+
+/**
  * bin_is_leaf - Checks if a node is a leaf.
  *
  * @node: pointer to the node
@@ -58,6 +70,6 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return (is_perfect(tree, binary_tree_depth(get_leaf(tree)), 0));
+	return (is_perfect(tree, bin_depth(get_leaf(tree)), 0));
 }
 
