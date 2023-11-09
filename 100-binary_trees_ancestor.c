@@ -26,4 +26,5 @@ const binary_tree_t *second)
 	else  if (first_p == second || sec_p == NULL ||
 			(!sec_p->parent && first_p))
 		return (binary_trees_ancestor(first_p, second));
+	return (binary_trees_ancestor(first_p, sec_p));
 }
